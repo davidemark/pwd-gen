@@ -14,19 +14,22 @@ const upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numbers = "0123456789";
 const symbols = "!$%&'()*+,-./:;<=>?@[]^_{|}~";
 
-// const logs
+// Constants for logging
 console.log(`upperLetters ${upperLetters}`);
 
 // Functions
 function getLowerCase() {
   return lowerLetters[Math.floor(Math.random() * lowerLetters.length)];
 }
+
 function getUpperCase() {
   return upperLetters[Math.floor(Math.random() * upperLetters.length)];
 }
+
 function getNumber() {
   return numbers[Math.floor(Math.random() * numbers.length)];
 }
+
 function getSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
@@ -38,10 +41,10 @@ function generatePassword() {
     let x = generateX();
     password += x;
   }
-  if (password != "") {
-    pwEl.textContent = password;
-  } else {
+  if (!password) {
     pwEl.textContent = "Check a box to generate a password";
+  } else {
+    pwEl.textContent = password;
   }
 }
 
@@ -60,7 +63,6 @@ function generateX() {
     xs.push(getSymbol());
   }
 
-  // clear
   if (xs.length === 0) {
     return "";
   }
@@ -69,10 +71,9 @@ function generateX() {
 
 function copyClipboard() {
   const cb = navigator.clipboard;
-  const password = document.querySelector("h2");
+  const password = pwEl;
   cb.writeText(password.textContent).then(() => alert("Password copied"));
 }
-//
 
 // Generate Password Click Event
 btnGenerator.addEventListener("click", () => {
@@ -90,4 +91,3 @@ lengthVal.textContent = `Password Length ${lengthEl.value}`;
 lengthEl.oninput = function () {
   lengthVal.textContent = `Password Length ${lengthEl.value}`;
 };
-//
