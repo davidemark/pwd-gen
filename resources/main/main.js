@@ -1,5 +1,4 @@
 /* PASSWORD GENERATOR */
-// FIXME: Certe volte non rispetta la lunghezza scelta - problema con i simboli
 
 // Captures
 let pwEl = document.querySelector("#pwEl");
@@ -85,9 +84,8 @@ btnClipboard.addEventListener("click", () => {
 });
 
 // Range Slider Value
-// let lengthEl = document.querySelector("#lengthEl");
 let lengthVal = document.querySelector("#lengthVal");
-lengthVal.textContent = `Password Length ${lengthEl.value}`; // Display the default slider value
+lengthVal.textContent = `Password Length ${lengthEl.value}`;
 
 lengthEl.oninput = function () {
   lengthVal.textContent = `Password Length ${lengthEl.value}`;
