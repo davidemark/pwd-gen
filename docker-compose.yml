@@ -6,4 +6,3 @@ services:
       - "8080:80"
     volumes:
       - ./index.html:/usr/share/nginx/html/index.html:ro
-      - ./resources:/usr/share/nginx/html/resources:ro
